@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class MenuScreens : MonoBehaviour
 {
     public int TestScene;
-    public GameObject TitleScreen, CreditScreen, BackButton, PlayButton, MoveListButton;
-    public GameObject SettingsButton, SettingsScreen, pauseScreen, PauseButton, resumeButton, MenuButton;
+    public GameObject TitleScreen, CreditScreen, BackButton, PlayButton;
+    public GameObject SettingsButton, SettingsScreen, pauseScreen, resumeButton;
 
     public void Credit()
     {
@@ -24,7 +24,7 @@ public class MenuScreens : MonoBehaviour
         CreditScreen.SetActive(false);
         SettingsScreen.SetActive(false);
         pauseScreen.SetActive(false);
-        PauseButton.SetActive(false);
+        //PauseButton.SetActive(false);
 
     }
 
@@ -35,7 +35,7 @@ public class MenuScreens : MonoBehaviour
         TitleScreen.SetActive(false);
         CreditScreen.SetActive(false);
         pauseScreen.SetActive(false);
-        PauseButton.SetActive(false);
+        //PauseButton.SetActive(false);
 
     }
 
@@ -45,16 +45,15 @@ public class MenuScreens : MonoBehaviour
         SceneManager.LoadScene(TestScene);
     }
 
-    public void Pause()
-    {
-        pauseScreen.SetActive(true);
-        PauseButton.SetActive(false);
-        TitleScreen.SetActive(false);
-        BackButton.SetActive(false);
-        CreditScreen.SetActive(false);
-        SettingsScreen.SetActive(false);
-        Time.timeScale = 0;
-    }
+    //public void Pause()
+    //{
+    //    pauseScreen.SetActive(true);
+    //    PauseButton.SetActive(false);
+    //    TitleScreen.SetActive(false);
+    //    BackButton.SetActive(false);
+    //    CreditScreen.SetActive(false);
+    //    SettingsScreen.SetActive(false);
+    //}
 
     public void Resume()
     {
@@ -63,20 +62,19 @@ public class MenuScreens : MonoBehaviour
         CreditScreen.SetActive(false);
         SettingsScreen.SetActive(false);
         pauseScreen.SetActive(false);
-        PauseButton.SetActive(true);
-        Time.timeScale = 1;
+       // PauseButton.SetActive(true);
     }
 
 
-    public void Menu()
-    {
-        TitleScreen.SetActive(true);
-        BackButton.SetActive(false);
-        CreditScreen.SetActive(false);
-        SettingsScreen.SetActive(false);
-        pauseScreen.SetActive(false);
-        PauseButton.SetActive(false);
-        Time.timeScale = 0;
-    }
+    //public void Menu()
+    //{
+    //    TitleScreen.SetActive(true);
+    //    BackButton.SetActive(false);
+    //    CreditScreen.SetActive(false);
+    //    SettingsScreen.SetActive(false);
+    //    pauseScreen.SetActive(false);
+    //    PauseButton.SetActive(false);
+    //    Time.timeScale = 0;
+    //}
 
 }

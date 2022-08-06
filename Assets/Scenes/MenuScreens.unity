@@ -253,13 +253,10 @@ MonoBehaviour:
   CreditScreen: {fileID: 336521622}
   BackButton: {fileID: 1358663109}
   PlayButton: {fileID: 1926923067}
-  MoveListButton: {fileID: 0}
   SettingsButton: {fileID: 946385094}
   SettingsScreen: {fileID: 92905084}
   pauseScreen: {fileID: 603379948}
-  PauseButton: {fileID: 0}
   resumeButton: {fileID: 1481063011}
-  MenuButton: {fileID: 0}
 --- !u!114 &191489355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3092,7 +3089,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 191489354}
         m_TargetAssemblyTypeName: MenuScreens, Assembly-CSharp
-        m_MethodName: info
+        m_MethodName: Credit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
