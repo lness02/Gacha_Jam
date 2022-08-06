@@ -1,2 +1,2 @@
-# Gacha_Jam
+# Gacha Jam
 gacha jam?
