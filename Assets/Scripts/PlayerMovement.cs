@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float accel = 100;
     [SerializeField] float rotateAccel = 0;
+
     private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
