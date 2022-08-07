@@ -6,15 +6,15 @@ using UnityEngine.Events;
 public class Interactable : MonoBehaviour
 {
     public UnityEvent uEvent;
-    [SerializeField] Sprite outlinedSprite;
-    private Sprite defSprite;
+    [SerializeField] Color recolor;
+    private Color defColor;
 
     private void Start()
     {
         this.gameObject.layer = 6;
-        defSprite = this.GetComponent<SpriteRenderer>().sprite;
-        if (outlinedSprite == null)
-            outlinedSprite = defSprite;
+        defColor = this.GetComponent<SpriteRenderer>().color;
+        if (recolor == Color.clear)
+            recolor = defColor;
     }
     public void interact()
     {
@@ -23,10 +23,10 @@ public class Interactable : MonoBehaviour
 
     public void select()
     {
-        this.GetComponent<SpriteRenderer>().sprite = outlinedSprite;
+        this.GetComponent<SpriteRenderer>().color = recolor;
     }
     public void deselect()
     {
-        this.GetComponent<SpriteRenderer>().sprite = defSprite;
+        this.GetComponent<SpriteRenderer>().color = defColor;
     }
 }
