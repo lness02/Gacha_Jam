@@ -22,8 +22,8 @@ public class Projectile : MonoBehaviour
     {
         if (this.transform.parent == other.transform)
             return;
-        Debug.Log(this.transform.parent);
-        Debug.Log("Other" + other.transform);
+        if (other.gameObject.tag == "Player")
+            Globals.PLAYER_HEALTH--;
         Destroy(this.gameObject);
     }
 }

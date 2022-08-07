@@ -5,14 +5,6 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     [SerializeField] GameObject bullet;
-    [SerializeField] KeyCode ShootButton = KeyCode.E;
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(ShootButton))
-            Instantiate(bullet, this.transform, false);
-    }
 
     public float aim()
     {
@@ -25,5 +17,10 @@ public class Shooter : MonoBehaviour
         else
             return Vector2.SignedAngle(GameObject.FindGameObjectWithTag("Player").transform.position,
                 this.transform.position);
+    }
+
+    public void shoot()
+    {
+        Instantiate(bullet, this.transform, false);
     }
 }
