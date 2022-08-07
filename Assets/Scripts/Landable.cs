@@ -5,14 +5,16 @@ using UnityEngine;
 public class Landable : MonoBehaviour
 {
     // Start is called before the first frame update
+    // Will switch between two sprites when triggered and reset
     [SerializeField] Sprite defaultSprite;
     [SerializeField] Sprite triggerSprite;
+
+    // The manager is the object's parent and controls the order of the platforms
     private LandableManager manager;
     private bool triggered = false;
 
     public void Start()
     {
-        //Landable must be a child of a landable manager
         manager = this.GetComponentInParent<LandableManager>();
     }
 
