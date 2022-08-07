@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
         float angle = this.GetComponentInParent<Shooter>().aim();
         this.transform.rotation = Quaternion.Euler(0, 0, angle);
         this.GetComponent<Rigidbody2D>().velocity = Quaternion.Euler(0, 0, angle) * Vector2.right * speed;
-        //Destroy(this.gameObject, 2f);
+        Destroy(this.gameObject, 2f);
     }
 
     public void OnTriggerEnter2D(Collider2D other)

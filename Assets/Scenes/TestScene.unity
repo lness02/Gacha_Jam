@@ -271,7 +271,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0.5
   m_AngularDrag: 10
-  m_GravityScale: 5
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -382,9 +382,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb635e1510474c44e80fd271389bef62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accel: 100
-  rotateAccel: 2
-  jump: 20
+  accel: 15
+  rotateAccel: 1
+  jump: 10
   moveSpeed: 10
 --- !u!114 &393733997
 MonoBehaviour:
@@ -755,7 +755,7 @@ GameObject:
   - component: {fileID: 858444429}
   - component: {fileID: 858444431}
   m_Layer: 0
-  m_Name: PopUpShooter
+  m_Name: EnemyShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -840,6 +840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e652fcf049af9249ba775ffdd77cf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 1566873614}
 --- !u!1 &1481820242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,7 +1154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc2d4f855503d641af8fb95d390823f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
 --- !u!50 &1566873616
 Rigidbody2D:
   serializedVersion: 4
