@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     public bool facingRight = true;
     private bool grounded;
+    private Collider2D selected = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        grounded = Physics2D.Raycast(this.transform.position, Vector2.down,
+            this.GetComponent<SpriteRenderer>().size.y / 2 + 0.2f, ~(1 << 3));
         if (grounded)
         {
             Globals.PLAYER_HEALTH--;
@@ -29,15 +32,22 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (facingRight && rb.rotation < 0 || !facingRight && rb.rotation > 0)
+            if (facingRight && rb.velocity.x < 0 || !facingRight && rb.velocity.x > 0)
             {
                 facingRight = !facingRight;
-                this.transform.localScale = new Vector3(rb.rotation < 0 ? 1 : -1, 1, 1);
+                this.transform.localScale = new Vector3(rb.velocity.x > 0 ? 1 : -1, 1, 1);
             }
         }
         Collider2D col = scanInteractable();
-        if (col != null && Input.GetKeyDown(KeyCode.E))
-            col.GetComponent<Interactable>().interact();
+        if (selected != null && selected != col)
+            selected.GetComponent<Interactable>().deselect();
+        selected = col;
+        if (selected != null)
+        {
+            selected.GetComponent<Interactable>().select();
+            if(Input.GetKeyDown(KeyCode.E))
+                selected.GetComponent<Interactable>().interact();
+        }
     }
 
     private void move()
@@ -58,8 +68,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Mathf.Abs(rb.rotation) > 60)
             Globals.PLAYER_HEALTH--;
-        grounded = grounded || Physics2D.Raycast(this.transform.position, Vector2.down,
-            this.GetComponent<SpriteRenderer>().size.y/2 + 0.2f, ~(1 << 3));
     }
 
     public void OnCollisionExit2D(Collision2D collision)
