@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Beaker : MonoBehaviour
 {
+    [SerializeField] GameObject beakerManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,20 @@ public class Beaker : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnMouseEnter()
+    {
+        this.GetComponent<Interactable>().select();
+    }
+
+    public void OnMouseExit()
+    {
+        this.GetComponent<Interactable>().deselect();
+    }
+
+    public void OnMouseDown()
+    {
+        //beakerManager.GetComponent<BeakerManager>().process();
     }
 }

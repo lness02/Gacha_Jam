@@ -21,7 +21,6 @@ public class Jetpack : MonoBehaviour
             playerRB.AddForce(Quaternion.Euler(0, 0, playerRB.rotation) * Vector3.up * accel);
         int dir = Input.GetKey(KeyCode.LeftArrow) ? 1 : 0;
         dir += Input.GetKey(KeyCode.RightArrow) ? -1 : 0;
-        Debug.Log(dir);
         playerRB.rotation += dir * rotateAccel;
         playerRB.rotation /= 1.02f;
     }

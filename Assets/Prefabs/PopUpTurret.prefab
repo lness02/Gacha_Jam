@@ -97,6 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0377f7df6a7a4bb48a6fe7dd200b9f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
+  bullet: {fileID: 88054244120997223, guid: 082937afbd339d34aa9c570a2f6a9afe, type: 3}
   dir: 1
-  popSpeed: 0.01
+  popSpeed: 0.05

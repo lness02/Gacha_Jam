@@ -16,7 +16,6 @@ public class LandableManager : MonoBehaviour
 
     public bool trigger(Landable obj)
     {
-        Debug.Log(landIndex);
         if (landables[landIndex] == obj)
         {
             landIndex++;
@@ -24,10 +23,7 @@ public class LandableManager : MonoBehaviour
         }
         else
             while(landIndex > 0)
-            {
                 landables[--landIndex].reset();
-                Debug.Log(landIndex);
-            }
         return false;
     }
 }
