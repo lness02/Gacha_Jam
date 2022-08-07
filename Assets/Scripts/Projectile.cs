@@ -15,15 +15,15 @@ public class Projectile : MonoBehaviour
         float angle = this.GetComponentInParent<Shooter>().aim();
         this.transform.rotation = Quaternion.Euler(0, 0, angle);
         this.GetComponent<Rigidbody2D>().velocity = Quaternion.Euler(0, 0, angle) * Vector2.right * speed;
-        //Destroy(this.gameObject, 2f);
+        Destroy(this.gameObject, 2f);
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (this.transform.parent == other.transform)
             return;
-        Debug.Log(this.transform.parent);
-        Debug.Log("Other" + other.transform);
+        if (other.gameObject.tag == "Player")
+            Globals.PLAYER_HEALTH--;
         Destroy(this.gameObject);
     }
 }

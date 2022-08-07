@@ -17,8 +17,10 @@ public class FollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(connected)
-            this.transform.position = player.transform.position - difference;
+        if (connected)
+        {
+            this.transform.position += (player.transform.position - this.transform.position - difference)/50;
+        }
         if (Input.GetKeyDown(KeyCode.Space)) disconnect();
         else if (Input.GetKeyUp(KeyCode.Space)) reconnect();
     }
