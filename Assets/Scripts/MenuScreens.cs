@@ -7,7 +7,7 @@ public class MenuScreens : MonoBehaviour
 {
     public int TestScene;
     public GameObject TitleScreen, CreditScreen, BackButton, PlayButton;
-    public GameObject SettingsButton, SettingsScreen, pauseScreen, resumeButton;
+    public GameObject SettingsButton, SettingsScreen;
 
     public void Credit()
     {
@@ -23,7 +23,7 @@ public class MenuScreens : MonoBehaviour
         BackButton.SetActive(false);
         CreditScreen.SetActive(false);
         SettingsScreen.SetActive(false);
-        pauseScreen.SetActive(false);
+        //pauseScreen.SetActive(false);
         //PauseButton.SetActive(false);
 
     }
@@ -34,7 +34,7 @@ public class MenuScreens : MonoBehaviour
         BackButton.SetActive(true);
         TitleScreen.SetActive(false);
         CreditScreen.SetActive(false);
-        pauseScreen.SetActive(false);
+        //pauseScreen.SetActive(false);
         //PauseButton.SetActive(false);
 
     }
@@ -47,6 +47,7 @@ public class MenuScreens : MonoBehaviour
 
     //public void Pause()
     //{
+    //    //SceneManager.LoadScene(MenuScreens);
     //    pauseScreen.SetActive(true);
     //    PauseButton.SetActive(false);
     //    TitleScreen.SetActive(false);
@@ -55,15 +56,15 @@ public class MenuScreens : MonoBehaviour
     //    SettingsScreen.SetActive(false);
     //}
 
-    public void Resume()
-    {
-        TitleScreen.SetActive(false);
-        BackButton.SetActive(false);
-        CreditScreen.SetActive(false);
-        SettingsScreen.SetActive(false);
-        pauseScreen.SetActive(false);
-       // PauseButton.SetActive(true);
-    }
+    //public void Resume()
+    //{
+    //    TitleScreen.SetActive(false);
+    //    BackButton.SetActive(false);
+    //    CreditScreen.SetActive(false);
+    //    SettingsScreen.SetActive(false);
+    //    pauseScreen.SetActive(false);
+    //    PauseButton.SetActive(true);
+    //}
 
 
     //public void Menu()
