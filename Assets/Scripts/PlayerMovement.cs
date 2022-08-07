@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 10;
 
     private Rigidbody2D rb;
+    private bool grounded;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +21,12 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         fly();
-        Debug.Log(this.grounded());
-        if(this.grounded())
+        if (grounded)
+        {
+            Globals.PLAYER_HEALTH--;
+            rb.rotation = 0;
             move();
+        }
         if (Input.GetKeyDown(KeyCode.E))
             this.GetComponent<Shooter>().shoot();
     }
@@ -34,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         int dir = Input.GetKey(KeyCode.LeftArrow) ? 1 : 0;
         dir += Input.GetKey(KeyCode.RightArrow) ? -1 : 0;
         rb.rotation += dir * rotateAccel;
+        rb.rotation /= 1.01f;
     }
 
     private void move()
@@ -45,9 +50,16 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity += Vector2.up * jump;
     }
 
-    private bool grounded()
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        return Physics2D.Raycast(this.transform.position, Vector3.down,
+        if (Mathf.Abs(rb.rotation) > 60)
+            Globals.PLAYER_HEALTH--;
+        grounded = grounded || Physics2D.Raycast(this.transform.position, Vector2.down,
             this.GetComponent<SpriteRenderer>().size.y/2 + 0.1f, ~(1 << 3));
+    }
+
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        grounded = false;
     }
 }
