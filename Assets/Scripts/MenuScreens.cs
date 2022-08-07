@@ -43,6 +43,7 @@ public class MenuScreens : MonoBehaviour
     {
         // also buttons stop working when loaded in opposite direction
         SceneManager.LoadScene(TestScene);
+        Time.timeScale = 1f;
     }
 
     //public void Pause()
