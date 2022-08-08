@@ -29,7 +29,8 @@ public class Jetpack : MonoBehaviour
     {
         this.gameObject.layer = 3;
         this.transform.parent = obj.transform;
-        this.transform.localPosition = new Vector2(-0.5f, 0.5f);
+        this.transform.localPosition = new Vector3(0.3f, 0.7f, 10);
+        this.transform.localScale = new Vector3(0.5f, 0.5f, 0);
         this.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
         playerRB = obj.GetComponent<Rigidbody2D>();
     }
