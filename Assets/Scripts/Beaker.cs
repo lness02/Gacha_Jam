@@ -7,12 +7,14 @@ public class Beaker : MonoBehaviour
     private BeakerManager manager;
     [SerializeField] Color[] colors = new Color[4];
     [SerializeField] GameObject contentObj;
+    private Color[] orig;
     private int index;
     private float height;
     private Stack<GameObject> contents;
     // Start is called before the first frame update
     void Start()
     {
+        orig = colors;
         Color[] fullArr = new Color[4];
         height = contentObj.GetComponent<SpriteRenderer>().size.y;
         contents = new Stack<GameObject>();
@@ -69,5 +71,13 @@ public class Beaker : MonoBehaviour
             if (colors[i] != colors[0])
                 return false;
         return true;
+    }
+
+    public void reset()
+    {
+        while (contents.Count > 0)
+            Destroy(contents.Pop());
+        colors = orig;
+        Start();
     }
 }

@@ -6,6 +6,7 @@ public class LandableManager : MonoBehaviour
 {
     private Landable[] landables;
     private int landIndex = 0;
+    [SerializeField] GameObject[] doors;
 
     public void Start()
     {
@@ -19,6 +20,9 @@ public class LandableManager : MonoBehaviour
         if (landables[landIndex] == obj)
         {
             landIndex++;
+            if (landIndex == landables.Length)
+                foreach (GameObject door in doors)
+                    Destroy(door);
             return true;
         }
         else

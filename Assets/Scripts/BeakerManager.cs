@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class BeakerManager : MonoBehaviour
 {
-    private Beaker[] beakers;
+    public GameObject[] beakers;
     private Beaker selected;
+    [SerializeField] GameObject[] doors;
 
     public void Start()
     {
-        beakers = new Beaker[this.transform.childCount];
+        beakers = new GameObject[this.transform.childCount];
         for (int i = 0; i < beakers.Length; i++)
-            beakers[i] = this.transform.GetChild(i).GetComponent<Beaker>();
+            beakers[i] = this.transform.GetChild(i).gameObject;
     }
 
     public void process(Beaker beak)
@@ -28,5 +29,21 @@ public class BeakerManager : MonoBehaviour
             selected.GetComponent<Interactable>().deselect();
             selected = null;
         }
+    }
+
+    public void OnMouseDown()
+    {
+        bool cleared = true;
+        foreach (GameObject beak in beakers)
+        {
+            Debug.Log(beak);
+            cleared = cleared && beak.GetComponent<Beaker>().pure();
+        }
+        if(!cleared)
+            foreach (GameObject beak in beakers)
+                beak.GetComponent<Beaker>().reset();
+        //else //meh
+            foreach (GameObject door in doors)
+                Destroy(door);
     }
 }

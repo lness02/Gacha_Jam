@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         grounded = Physics2D.Raycast(this.transform.position, Vector2.down,
-            this.GetComponent<SpriteRenderer>().size.y / 2 + 0.2f, ~(1 << 3));
+            this.GetComponent<Collider2D>().bounds.size.y / 2 + 0.2f, ~(1 << 3));
         if (grounded)
         {
             Globals.PLAYER_HEALTH--;
@@ -32,12 +32,15 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (facingRight && rb.velocity.x < 0 || !facingRight && rb.velocity.x > 0)
+            if (facingRight && rb.velocity.x < -0.1 || !facingRight && rb.velocity.x > 0.1)
             {
                 facingRight = !facingRight;
-                this.transform.localScale = new Vector3(rb.velocity.x > 0 ? 1 : -1, 1, 1);
+                Vector3 scale = this.transform.localScale;
+                scale.x *= -1;
+                this.transform.localScale = scale;
             }
         }
+
         Collider2D col = scanInteractable();
         if (selected != null && selected != col)
             selected.GetComponent<Interactable>().deselect();
@@ -60,7 +63,9 @@ public class PlayerMovement : MonoBehaviour
         if (facingRight && dir == -1 || !facingRight && dir == 1)
         {
             facingRight = !facingRight;
-            this.transform.localScale = new Vector3(dir, 1, 1);
+            Vector3 scale = this.transform.localScale;
+            scale.x *= -1;
+            this.transform.localScale = scale;
         }
     }
 
