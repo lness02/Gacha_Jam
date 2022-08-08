@@ -434,7 +434,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &60794248
 GameObject:
@@ -2289,7 +2289,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &394215981
 GameObject:
@@ -2735,7 +2735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8644197360198054060, guid: add3c1057f5d7414d9ad52c25d0d7396, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8644197360198054060, guid: add3c1057f5d7414d9ad52c25d0d7396, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6224,7 +6224,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5768352391746061267, guid: 63769d378d5c10d49954c6b3c77b369f, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5768352391746061267, guid: 63769d378d5c10d49954c6b3c77b369f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6870,6 +6870,7 @@ GameObject:
   - component: {fileID: 1343375363}
   - component: {fileID: 1343375362}
   - component: {fileID: 1343375361}
+  - component: {fileID: 1343375364}
   m_Layer: 0
   m_Name: Jetpack
   m_TagString: Untagged
@@ -6958,6 +6959,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1343375364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343375360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a079eefdd4f454182665fd47d02208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1343375361}
+        m_TargetAssemblyTypeName: Jetpack, Assembly-CSharp
+        m_MethodName: attachToPlayer
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 851826818}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  recolor: {r: 0.38679248, g: 0.3043254, b: 0.3043254, a: 0.80784315}
 --- !u!1 &1362402023
 GameObject:
   m_ObjectHideFlags: 0
@@ -7542,7 +7571,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1431816927
 GameObject:
